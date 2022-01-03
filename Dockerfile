@@ -36,11 +36,12 @@ COPY ./deploy-setting/php-fpm/php.ini /etc/php/7.0/fpm/php.ini
 # Configure supervisor
 COPY ./deploy-setting/supervisor/conf.d/nginx.conf /etc/supervisor/conf.d/nginx.conf
 COPY ./deploy-setting/supervisor/conf.d/php-fpm.conf /etc/supervisor/conf.d/php-fpm.conf
+COPY ./deploy-setting/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 WORKDIR /var/www
 COPY . /var/www
 
-CMD [ "sh", "-c", "service supervisor start; bash"]
+CMD [ "sh", "-c", "service supervisor start;"]
 
 
 
